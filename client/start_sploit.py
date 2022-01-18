@@ -81,7 +81,7 @@ def parse_args():
                         help="Sploit executable (should take a victim's host as the first argument)")
     parser.add_argument('--server-url', metavar='URL', default='http://localhost:5000',
                         help='Server URL')
-    parser.add_argument('--server-pass', metavar='PASS', default='1234',
+    parser.add_argument('--server-pass', metavar='PASS', default='5gPtUdwrHfHYg7az',
                         help='Server password')
     parser.add_argument('--interpreter', metavar='COMMAND',
                         help='Explicitly specify sploit interpreter (use on Windows, which doesn\'t '
@@ -573,6 +573,7 @@ def main(args):
     for attack_no in once_in_a_period(args.attack_period):
         try:
             config = get_config(args)
+            logging.info(config)
             flag_format = re.compile(config['FLAG_FORMAT'])
         except Exception as e:
             logging.error("Can't get config from the server: {}".format(repr(e)))

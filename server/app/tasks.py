@@ -44,7 +44,7 @@ def submit_flags_task():
         flags = get_fair_share(list(grouped_flags.values()), config['SUBMIT_FLAG_LIMIT'])
 
         logger.info('Submitting %s/%s queued flags', len(flags), len(queued_flags))
-
+        logger.info('flags'+str(flags))
         results = submit_flags(flags, config)
 
         rows = [(item.status.name, item.checksystem_response, item.flag) for item in results]
